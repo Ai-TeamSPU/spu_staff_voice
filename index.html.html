@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>SPU Staff Voice Dashboard | 16 มิ.ย. 69</title>
+<style>
+:root{
+  --bg:#f7f9fc;--panel:#ffffff;--ink:#172033;--muted:#667085;--line:#e7ecf4;
+  --blue:#2f6fed;--cyan:#14b8c8;--green:#12a67a;--amber:#f59e0b;--red:#e85959;--purple:#8b5cf6;
+  --shadow:0 16px 38px rgba(28,39,60,.08);--radius:22px;
+}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#eef5ff 0%,var(--bg) 28%,#fff 100%);color:var(--ink);font-family:"Segoe UI",Tahoma,"Noto Sans Thai",Arial,sans-serif;line-height:1.55}
+.container{max-width:1320px;margin:0 auto;padding:28px 22px 54px}.hero{border-radius:30px;background:radial-gradient(circle at top right,rgba(20,184,200,.22),transparent 30%),linear-gradient(135deg,#0f2557,#1749a3 58%,#2f6fed);color:#fff;padding:34px 38px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero h1{font-size:32px;line-height:1.25;margin:0 0 12px}.hero p{max-width:900px;margin:0;color:#eaf2ff}.pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:8px 12px;border-radius:99px;font-size:13px;margin:0 8px 12px 0}.grid{display:grid;gap:18px}.kpi-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:22px}.kpi-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 19px;box-shadow:var(--shadow)}.kpi-title{font-size:13px;color:var(--muted);margin-bottom:8px}.kpi-value{font-size:30px;font-weight:780;letter-spacing:-.02em}.kpi-sub{font-size:12.5px;color:var(--muted);margin-top:6px}.kpi-card.warn .kpi-value{color:var(--amber)}.kpi-card.risk .kpi-value{color:var(--red)}.kpi-card.good .kpi-value{color:var(--green)}.section{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}.section h2{font-size:22px;margin:0 0 8px}.section h3{font-size:17px;margin:0 0 12px}.section-lead{color:var(--muted);margin:0 0 20px}.two-col{grid-template-columns:1.1fr .9fr}.three-col{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}.insight-list{margin:0;padding-left:22px}.insight-list li{margin:8px 0}.bar-chart{display:flex;flex-direction:column;gap:12px}.bar-row{display:grid;grid-template-columns:260px 1fr 48px;gap:10px;align-items:center}.bar-label{font-size:13.5px;color:#344054;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bar-track{height:14px;background:#eef2f8;border-radius:99px;overflow:hidden}.bar-fill{height:100%;border-radius:99px;background:var(--blue)}.bar-fill.green{background:var(--green)}.bar-fill.amber{background:var(--amber)}.bar-fill.red{background:var(--red)}.bar-fill.purple{background:var(--purple)}.bar-fill.cyan{background:var(--cyan)}.bar-value{text-align:right;font-weight:700;color:#344054}.stacked{display:flex;width:100%;height:28px;background:#eef2f8;border-radius:999px;overflow:hidden}.stack{height:100%}.c1{background:#2f6fed}.c2{background:#12a67a}.c3{background:#f59e0b}.c4{background:#e85959}.c5{background:#8b5cf6}.c6{background:#14b8c8}.c7{background:#94a3b8}.legend-wrap{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px}.legend{font-size:12.5px;color:#475467}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}.badge{display:inline-flex;align-items:center;padding:4px 9px;border-radius:99px;font-size:12px;font-weight:700}.badge.high{background:#fff1f0;color:#c5292a}.badge.medium{background:#fff7e6;color:#b76b00}.badge.low{background:#eafaf4;color:#087c5a}.badge.neutral{background:#eef2f8;color:#475467}.metric-row{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding:9px 0}.metric-row:last-child{border-bottom:0}.muted{color:var(--muted)}.quote{border-left:4px solid #d7e3ff;background:#f8fbff;border-radius:12px;padding:10px 12px;margin:8px 0;color:#344054}.roadmap{width:100%;border-collapse:collapse}.roadmap th,.roadmap td{border-bottom:1px solid var(--line);padding:12px 10px;text-align:left;vertical-align:top}.roadmap th{font-size:13px;color:#475467;background:#f8fafc}.toolbar{display:grid;grid-template-columns:1.4fr repeat(3, minmax(170px, .5fr)) 110px;gap:10px;margin:14px 0}.toolbar input,.toolbar select{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;color:#172033}.btn{border:0;background:#1749a3;color:#fff;border-radius:12px;padding:11px 14px;font-weight:700;cursor:pointer}.btn:hover{background:#0f367c}.data-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;max-height:580px}.data-table{width:100%;border-collapse:collapse;font-size:13px}.data-table th{position:sticky;top:0;background:#f8fafc;color:#344054;z-index:1}.data-table th,.data-table td{padding:10px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;min-width:130px}.data-table td.wide{min-width:270px}.footer{margin-top:18px;color:#667085;font-size:12.5px}.note{background:#fff8e6;border:1px solid #ffe0a3;color:#77520a;border-radius:16px;padding:14px 16px}.danger-note{background:#fff1f0;border:1px solid #ffd1cf;color:#8f1f1f;border-radius:16px;padding:14px 16px}.small{font-size:12px}.comparison-table{width:100%;border-collapse:collapse}.comparison-table th,.comparison-table td{padding:10px;border-bottom:1px solid var(--line);text-align:left}.comparison-table th{color:#475467;background:#f8fafc}@media(max-width:980px){.kpi-grid,.two-col,.three-col{grid-template-columns:1fr}.bar-row{grid-template-columns:1fr 1fr 42px}.toolbar{grid-template-columns:1fr}.hero{padding:26px}.hero h1{font-size:26px}}
+
+
+/* Executive pastel topic redesign */
+body{
+  background:linear-gradient(180deg,#f4f7fb 0%,#fbfcff 38%,#ffffff 100%);
+}
+.hero{
+  background:
+    radial-gradient(circle at top right,rgba(204,230,255,.9),transparent 32%),
+    linear-gradient(135deg,#dcecff 0%,#f3eaff 52%,#e9fbf6 100%);
+  color:#26364d;
+  border:1px solid #dde8f5;
+}
+.hero p{color:#526174}
+.pill{background:rgba(255,255,255,.72);border:1px solid rgba(139,159,184,.24);color:#344054}
+.section{
+  border:1px solid rgba(126,145,170,.18);
+  box-shadow:0 12px 26px rgba(31,41,55,.06);
+  position:relative;
+  overflow:hidden;
+}
+.section::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;width:8px;
+  opacity:.65;
+}
+.section h2{
+  letter-spacing:-.01em;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.section h2::before{
+  content:"";
+  display:inline-block;
+  width:12px;height:12px;border-radius:99px;
+  background:#a7c7e7;
+  box-shadow:0 0 0 6px rgba(167,199,231,.18);
+}
+.topic-1{background:linear-gradient(135deg,#ffffff 0%,#eef6ff 100%)}
+.topic-1::before,.topic-1 h2::before{background:#a7c7e7}
+.topic-2{background:linear-gradient(135deg,#ffffff 0%,#fff4e8 100%)}
+.topic-2::before,.topic-2 h2::before{background:#f7c8a8}
+.topic-3{background:linear-gradient(135deg,#ffffff 0%,#edf8f4 100%)}
+.topic-3::before,.topic-3 h2::before{background:#9fdcc7}
+.topic-4{background:linear-gradient(135deg,#ffffff 0%,#f4efff 100%)}
+.topic-4::before,.topic-4 h2::before{background:#c7b4ee}
+.topic-5{background:linear-gradient(135deg,#ffffff 0%,#fff1f5 100%)}
+.topic-5::before,.topic-5 h2::before{background:#f4b6c2}
+.topic-6{background:linear-gradient(135deg,#ffffff 0%,#fff9e8 100%)}
+.topic-6::before,.topic-6 h2::before{background:#f6d98b}
+.topic-7{background:linear-gradient(135deg,#ffffff 0%,#eef7f8 100%)}
+.topic-7::before,.topic-7 h2::before{background:#9bd3dd}
+.card,.kpi-card{
+  background:rgba(255,255,255,.82);
+  backdrop-filter: blur(3px);
+}
+.badge{
+  border-radius:999px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<section class="hero">
+<div>
+<span class="pill">Dashboard สำหรับผู้บริหาร</span>
+<span class="pill">ปกปิดชื่อบุคคลแล้ว</span>
+<span class="pill">ข้อมูลจากแบบสำรวจ</span>
+</div>
+<h1>Dashboard วิเคราะห์เสียงสะท้อนเจ้าหน้าที่คณะ / สายสนับสนุน</h1>
+<p>รายงานนี้สรุปเสียงสะท้อนจากเจ้าหน้าที่คณะ เพื่อให้ผู้บริหารเห็นเป็นเรื่อง ๆ ว่าจุดไหนควรแก้ก่อน จุดไหนควรรักษาไว้ และควรเริ่มทำอะไรต่อ โดยปกปิดชื่อบุคคลในตัวอย่างข้อความ</p>
+</section>
+<div class="grid kpi-grid">
+<div class="kpi-card"><div class="kpi-title">คำตอบที่ใช้งานได้</div><div class="kpi-value">52</div><div class="kpi-sub">จาก 93 แถว; แถวว่าง 41</div></div>
+<div class="kpi-card"><div class="kpi-title">คณะ/วิทยาลัย</div><div class="kpi-value">15</div><div class="kpi-sub">หน่วยงานผู้ตอบทั้งหมด</div></div>
+<div class="kpi-card good"><div class="kpi-title">การรับรู้ KPI</div><div class="kpi-value">51.9%</div><div class="kpi-sub">ทราบ + ทราบบางส่วน</div></div>
+<div class="kpi-card risk"><div class="kpi-title">High ความเสี่ยงลาออก</div><div class="kpi-value">15.4%</div><div class="kpi-sub">8 จาก 52 คำตอบ</div></div>
+<div class="kpi-card warn"><div class="kpi-title">KPI Result Awareness</div><div class="kpi-value">23.1%</div><div class="kpi-sub">ทราบ + ทราบบางส่วน</div></div>
+<div class="kpi-card good"><div class="kpi-title">Long-term Signal</div><div class="kpi-value">69.2%</div><div class="kpi-sub">กลุ่ม Low Risk / อยู่ต่อค่อนข้างยาว</div></div>
+<div class="kpi-card risk"><div class="kpi-title">Top การติดขัด</div><div class="kpi-value">สำนักงานอาคารและสถานที่</div><div class="kpi-sub">23 ครั้ง</div></div>
+<div class="kpi-card good"><div class="kpi-title">Positive Voice</div><div class="kpi-value">75.0%</div><div class="kpi-sub">Positive + Mixed sentiment</div></div>
+</div>
+<section class="section topic-1">
+<h2>ภาพรวมสำหรับผู้บริหาร</h2>
+<p class="section-lead">สรุปเรื่องสำคัญที่ผู้บริหารควรเห็นก่อน</p>
+<div class="grid">
+<div class="card">
+<h3>ข้อค้นพบสำคัญ</h3>
+<ul class="insight-list"><li>มีคำตอบที่ใช้งานได้ 52 คำตอบ จาก 15 คณะ/วิทยาลัย และมีแถวว่าง 41 แถว ตัวเลขร้อยละจึงอ้างอิงจากฐาน 52 คำตอบเป็นหลัก</li><li>จุดติดขัดที่พบมากที่สุดคือ “ประสานงาน/ติดตาม/สื่อสาร” (24 ครั้ง) รองลงมาคือ “งานวิชาการสนับสนุน/อาจารย์/นักศึกษา” (22 ครั้ง)</li><li>สำนักงานอาคารและสถานที่ถูกกล่าวถึงด้านการประสานงานติดขัดมากที่สุด (23 ครั้ง) ควรใช้ข้อมูลนี้เพื่อปรับขั้นตอน ช่องทางติดต่อ และ SLA ไม่ใช่เพื่อประเมินผลงานรายหน่วยงาน</li><li>การรับรู้ KPI แบบทราบหรือทราบบางส่วนอยู่ที่ 51.9% ส่วนกลุ่มไม่ทราบ/อยากรู้รวม 42.3% แปลว่ายังต้องสื่อสารเป้าหมายคณะให้ชัดและง่ายขึ้น</li><li>กลุ่มที่มีความเสี่ยงลาออกระดับสูงอยู่ที่ 15.4% และหากรวมระดับกลางจะอยู่ที่ 25.0% สัญญาณหลักคืออยู่ระยะสั้น สอบราชการ หรืออยากเห็นโอกาสเติบโต</li><li>เสียงสะท้อนโดยรวมยังเป็นบวกสูง (75.0%) แต่ควรต่อยอดเรื่อง Career Path สวัสดิการ สุขภาพ และโอกาสพัฒนาบุคลากร</li></ul>
+</div>
+</div>
+</section>
+<section class="section topic-2">
+<h2>ประเด็นที่ 1: งานคณะติดขัดตรงไหน</h2>
+<p class="section-lead">สรุปจุดที่ทำให้งานของคณะช้า ซ้ำ หรือประสานงานยาก</p>
+<div class="grid two-col">
+<div class="card">
+<h3>จุดติดขัดที่พบบ่อย</h3>
+<div class="bar-chart">
+<div class="bar-row">
+<div class="bar-label">ประสานงาน/ติดตาม/สื่อสาร</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:100.0%"></div></div>
+<div class="bar-value">24</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">งานวิชาการสนับสนุน/อาจารย์/นักศึกษา</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:91.7%"></div></div>
+<div class="bar-value">22</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">งานเอกสาร/แบบฟอร์ม/ขั้นตอนงาน</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:62.5%"></div></div>
+<div class="bar-value">15</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">การเงิน/เบิกจ่าย/งบประมาณ</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:58.3%"></div></div>
+<div class="bar-value">14</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">ระบบ/ข้อมูล/โปรแกรม/Template</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:54.2%"></div></div>
+<div class="bar-value">13</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">อุปกรณ์/ห้อง/สถานที่/การจอง</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:50.0%"></div></div>
+<div class="bar-value">12</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">งานซ้ำ/งานเร่ง/คนไม่พอ</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:37.5%"></div></div>
+<div class="bar-value">9</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">PR/Content/สื่อ</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:20.8%"></div></div>
+<div class="bar-value">5</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">อื่น ๆ/ต้องตรวจสอบเพิ่มเติม</div>
+<div class="bar-track"><div class="bar-fill primary" style="width:16.7%"></div></div>
+<div class="bar-value">4</div>
+</div></div>
+</div>
+<div class="card">
+<h3>สัดส่วนผู้ตอบตามคณะ/วิทยาลัย</h3>
+<div class="bar-chart">
+<div class="bar-row">
+<div class="bar-label">คณะนิติศาสตร์</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:100.0%"></div></div>
+<div class="bar-value">10</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะวิศวกรรมศาสตร์</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:60.0%"></div></div>
+<div class="bar-value">6</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">วิทยาลัยบัณฑิตศึกษา</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:50.0%"></div></div>
+<div class="bar-value">5</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะศิลปศาสตร์</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:40.0%"></div></div>
+<div class="bar-value">4</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะบริหารธุรกิจ</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:30.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">วิทยาลัยการบิน การท่องเที่ยว เเละการบริการ</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:30.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะนิเทศศาสตร์</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:30.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะดิจิทัลมีเดีย</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:30.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">วิทยาลัยนานาชาติ</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:30.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะบัญชี</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:30.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะการสร้างเจ้าของธุรกิจ</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:20.0%"></div></div>
+<div class="bar-value">2</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะการออกแบบและสถาปัตยกรรมศาสตร์</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:20.0%"></div></div>
+<div class="bar-value">2</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">คณะเทคโนโลยีสารสนเทศ</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:20.0%"></div></div>
+<div class="bar-value">2</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">วิทยาลัยโลจิสติกส์ฯ</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:20.0%"></div></div>
+<div class="bar-value">2</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักวิชาศึกษาทั่วไป</div>
+<div class="bar-track"><div class="bar-fill cyan" style="width:10.0%"></div></div>
+<div class="bar-value">1</div>
+</div></div>
+</div>
+</div>
+<div class="grid three-col" style="margin-top:18px">
+<div class="card">
+<h3>ประสานงาน/ติดตาม/สื่อสาร <span class="badge high">24 ครั้ง</span></h3>
+<div class="quote">“การยืมอุปกรณ์ยังมีปัญหา เช่น อุปกรณ์มาช้า สูญหาย ชำรุด หรือไม่ได้ทำตามขั้นตอนที่กำหนด”</div><div class="quote">“การจัดกิจกรรมของคณะต้องประสานหลายฝ่าย เตรียมอุปกรณ์ และดูแลนักศึกษา ทำให้งานมีรายละเอียดมากและใช้เวลาติดตามหลายขั้นตอน”</div>
+</div>
+<div class="card">
+<h3>งานวิชาการสนับสนุน/อาจารย์/นักศึกษา <span class="badge high">22 ครั้ง</span></h3>
+<div class="quote">“งานเขียนคอนเทนต์และออกแบบ Banner ประชาสัมพันธ์ของหลายสาขามีแนวทางไม่เหมือนกัน ทำให้ต้องปรับงานหลายรอบ”</div><div class="quote">“การจัดกิจกรรมของคณะต้องประสานหลายฝ่าย เตรียมอุปกรณ์ และดูแลนักศึกษา ทำให้งานมีรายละเอียดมากและใช้เวลาติดตามหลายขั้นตอน”</div>
+</div>
+<div class="card">
+<h3>งานเอกสาร/แบบฟอร์ม/ขั้นตอนงาน <span class="badge high">15 ครั้ง</span></h3>
+<div class="quote">“การยืมอุปกรณ์ยังมีปัญหา เช่น อุปกรณ์มาช้า สูญหาย ชำรุด หรือไม่ได้ทำตามขั้นตอนที่กำหนด”</div><div class="quote">“การตรวจเอกสารคืนเงินทดรองใช้เวลานาน เพราะบางรายการไม่ตรง ต้องประสานกลับ และต้องตรวจรายละเอียดจำนวนมาก”</div>
+</div>
+<div class="card">
+<h3>การเงิน/เบิกจ่าย/งบประมาณ <span class="badge medium">14 ครั้ง</span></h3>
+<div class="quote">“งานเขียนคอนเทนต์และออกแบบ Banner ประชาสัมพันธ์ของหลายสาขามีแนวทางไม่เหมือนกัน ทำให้ต้องปรับงานหลายรอบ”</div><div class="quote">“การตรวจเอกสารคืนเงินทดรองใช้เวลานาน เพราะบางรายการไม่ตรง ต้องประสานกลับ และต้องตรวจรายละเอียดจำนวนมาก”</div>
+</div>
+<div class="card">
+<h3>ระบบ/ข้อมูล/โปรแกรม/Template <span class="badge medium">13 ครั้ง</span></h3>
+<div class="quote">“การใช้ห้องบางประเภท เช่น ห้องประชุม ห้องโค้ชชิ่ง ห้องไลฟ์สด และห้อง Lab ยังไม่มีระบบจองหรือจัดการที่ชัดเจน”</div><div class="quote">“งานเขียนคอนเทนต์และออกแบบ Banner ประชาสัมพันธ์ของหลายสาขามีแนวทางไม่เหมือนกัน ทำให้ต้องปรับงานหลายรอบ”</div>
+</div>
+</div>
+</section>
+<section class="section topic-3">
+<h2>ประเด็นที่ 2: การประสานงานกับหน่วยงานสนับสนุน</h2>
+<p class="section-lead">ดูทั้งจุดที่ควรปรับปรุง และจุดที่ได้รับคำชมจากเจ้าหน้าที่</p>
+<div class="grid two-col">
+<div class="card">
+<h3>จุดที่ควรปรับปรุงในการประสานงาน</h3>
+<div class="bar-chart">
+<div class="bar-row">
+<div class="bar-label">สำนักงานอาคารและสถานที่</div>
+<div class="bar-track"><div class="bar-fill red" style="width:100.0%"></div></div>
+<div class="bar-value">23</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานการคลัง/ฝ่ายการเงิน</div>
+<div class="bar-track"><div class="bar-fill red" style="width:39.1%"></div></div>
+<div class="bar-value">9</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">งานบัญชี/ฝ่ายบัญชี</div>
+<div class="bar-track"><div class="bar-fill red" style="width:13.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานวิชาการ</div>
+<div class="bar-track"><div class="bar-fill red" style="width:13.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานทะเบียน</div>
+<div class="bar-track"><div class="bar-fill red" style="width:13.0%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานประชาสัมพันธ์/งานกราฟิก</div>
+<div class="bar-track"><div class="bar-fill red" style="width:8.7%"></div></div>
+<div class="bar-value">2</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานบุคคล</div>
+<div class="bar-track"><div class="bar-fill red" style="width:4.3%"></div></div>
+<div class="bar-value">1</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">อาจารย์ผู้สอน/กำลังคนสอน</div>
+<div class="bar-track"><div class="bar-fill red" style="width:4.3%"></div></div>
+<div class="bar-value">1</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานวิเทศสัมพันธ์ (OIR)</div>
+<div class="bar-track"><div class="bar-fill red" style="width:4.3%"></div></div>
+<div class="bar-value">1</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">ศูนย์สหกิจศึกษาและพัฒนาอาชีพ</div>
+<div class="bar-track"><div class="bar-fill red" style="width:4.3%"></div></div>
+<div class="bar-value">1</div>
+</div></div>
+</div>
+<div class="card">
+<h3>จุดบริการที่ทำได้ดี</h3>
+<div class="bar-chart">
+<div class="bar-row">
+<div class="bar-label">สำนักงานทะเบียน</div>
+<div class="bar-track"><div class="bar-fill green" style="width:100.0%"></div></div>
+<div class="bar-value">13</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานวิชาการ</div>
+<div class="bar-track"><div class="bar-fill green" style="width:69.2%"></div></div>
+<div class="bar-value">9</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">งานบัญชี/ฝ่ายบัญชี</div>
+<div class="bar-track"><div class="bar-fill green" style="width:46.2%"></div></div>
+<div class="bar-value">6</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">Operator</div>
+<div class="bar-track"><div class="bar-fill green" style="width:46.2%"></div></div>
+<div class="bar-value">6</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">ศูนย์ ICT</div>
+<div class="bar-track"><div class="bar-fill green" style="width:38.5%"></div></div>
+<div class="bar-value">5</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">โรงพิมพ์</div>
+<div class="bar-track"><div class="bar-fill green" style="width:30.8%"></div></div>
+<div class="bar-value">4</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานอาคารและสถานที่</div>
+<div class="bar-track"><div class="bar-fill green" style="width:23.1%"></div></div>
+<div class="bar-value">3</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานการคลัง/ฝ่ายการเงิน</div>
+<div class="bar-track"><div class="bar-fill green" style="width:15.4%"></div></div>
+<div class="bar-value">2</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานประชาสัมพันธ์/งานกราฟิก</div>
+<div class="bar-track"><div class="bar-fill green" style="width:15.4%"></div></div>
+<div class="bar-value">2</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สำนักงานกลาง</div>
+<div class="bar-track"><div class="bar-fill green" style="width:7.7%"></div></div>
+<div class="bar-value">1</div>
+</div></div>
+</div>
+</div>
+<div class="card" style="margin-top:18px">
+<h3>ภาพรวมคำชมเทียบกับข้อเสนอให้ปรับปรุง</h3>
+<p class="muted">สูตร: <strong>Net Coordination Score = Praise Mentions - Friction Mentions</strong></p>
+<p class="muted">หลักการคิด: นับจำนวนครั้งที่หน่วยงานหรือธีมถูกกล่าวถึงในเชิงบวกเป็น <strong>Praise Mentions</strong> แล้วลบด้วยจำนวนครั้งที่ถูกกล่าวถึงว่าเกิดความติดขัดในการประสานงานเป็น <strong>Friction Mentions</strong> ผลลัพธ์ที่เป็นบวกหมายถึงภาพรวมได้รับคำชมมากกว่าข้อติดขัด ส่วนค่าติดลบหมายถึงมีสัญญาณว่าควรเข้าไปดูขั้นตอนการทำงาน ช่องทางประสานงาน หรือ SLA เพิ่มเติม</p>
+<p class="muted">วิธีอ่าน: ใช้คะแนนนี้เพื่อจัดลำดับประเด็นที่ควรพัฒนา ไม่ใช่การตัดสินผลงานของหน่วยงานโดยตรง เพราะจำนวน mention สะท้อนเสียงสะท้อนจากผู้ตอบชุดนี้เท่านั้น</p>
+<table class="comparison-table">
+<thead><tr><th>หน่วยงาน/ธีม</th><th>การติดขัด</th><th>Praise</th><th>Net Score</th></tr></thead>
+<tbody>
+<tr><td>สำนักงานอาคารและสถานที่</td><td>23</td><td>3</td><td>-20</td></tr>
+<tr><td>สำนักงานการคลัง/ฝ่ายการเงิน</td><td>9</td><td>2</td><td>-7</td></tr>
+<tr><td>งานบัญชี/ฝ่ายบัญชี</td><td>3</td><td>6</td><td>3</td></tr>
+<tr><td>สำนักงานวิชาการ</td><td>3</td><td>9</td><td>6</td></tr>
+<tr><td>สำนักงานทะเบียน</td><td>3</td><td>13</td><td>10</td></tr>
+<tr><td>สำนักงานประชาสัมพันธ์/งานกราฟิก</td><td>2</td><td>2</td><td>0</td></tr>
+<tr><td>งานสารบรรณ</td><td>1</td><td>0</td><td>-1</td></tr>
+<tr><td>ศูนย์สหกิจศึกษาและพัฒนาอาชีพ</td><td>1</td><td>0</td><td>-1</td></tr>
+<tr><td>สำนักงานบุคคล</td><td>1</td><td>0</td><td>-1</td></tr>
+<tr><td>สำนักงานวิเทศสัมพันธ์ (OIR)</td><td>1</td><td>0</td><td>-1</td></tr>
+<tr><td>อาจารย์ผู้สอน/กำลังคนสอน</td><td>1</td><td>0</td><td>-1</td></tr>
+<tr><td>ศูนย์ ICT</td><td>1</td><td>5</td><td>4</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section topic-4">
+<h2>ประเด็นที่ 3: การรับรู้เป้าหมายและ KPI</h2><p class="section-lead">ดูว่าบุคลากรเข้าใจเป้าหมายคณะและผลสำเร็จของ KPI มากน้อยแค่ไหน</p>
+<div class="grid two-col">
+<div class="card">
+<h3>เข้าใจเป้าหมายและยุทธศาสตร์แค่ไหน</h3>
+<div class="stacked"><div class="stack c1" style="width:40.38%" title="ทราบ 21 (40.4%)"></div><div class="stack c2" style="width:11.54%" title="ทราบบางส่วน 6 (11.5%)"></div><div class="stack c3" style="width:17.31%" title="ไม่ทราบ 9 (17.3%)"></div><div class="stack c4" style="width:25.00%" title="ไม่ทราบ/อยากรู้ 13 (25.0%)"></div><div class="stack c5" style="width:5.77%" title="ไม่ตอบ/ไม่ชัดเจน 3 (5.8%)"></div></div><div class="legend-wrap"><span class="legend"><i class="c1"></i>ทราบ: 21 (40.4%)</span><span class="legend"><i class="c2"></i>ทราบบางส่วน: 6 (11.5%)</span><span class="legend"><i class="c3"></i>ไม่ทราบ: 9 (17.3%)</span><span class="legend"><i class="c4"></i>ไม่ทราบ/อยากรู้: 13 (25.0%)</span><span class="legend"><i class="c5"></i>ไม่ตอบ/ไม่ชัดเจน: 3 (5.8%)</span></div>
+<p class="muted">ข้อเสนอ: ทำสรุป KPI ฉบับเจ้าหน้าที่ อธิบายให้เห็นว่างานประจำเชื่อมกับเป้าหมายคณะอย่างไร</p>
+</div>
+<div class="card">
+<h3>รับรู้ผลสำเร็จของ KPI แค่ไหน</h3>
+<div class="stacked"><div class="stack c1" style="width:19.23%" title="ทราบ 10 (19.2%)"></div><div class="stack c2" style="width:3.85%" title="ทราบบางส่วน 2 (3.8%)"></div><div class="stack c3" style="width:11.54%" title="ไม่ทราบ 6 (11.5%)"></div><div class="stack c4" style="width:7.69%" title="ไม่ทราบ/อยากรู้ 4 (7.7%)"></div><div class="stack c5" style="width:57.69%" title="ไม่ตอบ/ไม่ชัดเจน 30 (57.7%)"></div></div><div class="legend-wrap"><span class="legend"><i class="c1"></i>ทราบ: 10 (19.2%)</span><span class="legend"><i class="c2"></i>ทราบบางส่วน: 2 (3.8%)</span><span class="legend"><i class="c3"></i>ไม่ทราบ: 6 (11.5%)</span><span class="legend"><i class="c4"></i>ไม่ทราบ/อยากรู้: 4 (7.7%)</span><span class="legend"><i class="c5"></i>ไม่ตอบ/ไม่ชัดเจน: 30 (57.7%)</span></div>
+<p class="muted">สัญญาณสำคัญ: กลุ่มไม่ตอบ/ไม่ชัดเจนยังสูง ควรสรุปผล KPI ให้เข้าใจง่ายเป็นรายไตรมาสหรือรายภาคการศึกษา</p>
+</div>
+</div>
+</section>
+<section class="section topic-5">
+<h2>ประเด็นที่ 4: ความผูกพันและแนวโน้มการอยู่ต่อ</h2><p class="section-lead">ดูทั้งความรู้สึกดีต่อองค์กร และสัญญาณของกลุ่มที่อาจอยู่ต่อไม่นาน</p>
+<div class="grid two-col">
+<div class="card">
+<h3>เสียงสะท้อนจากเจ้าหน้าที่</h3>
+<div class="bar-chart">
+<div class="bar-row">
+<div class="bar-label">ความผูกพัน/ขอบคุณ/ภูมิใจ</div>
+<div class="bar-track"><div class="bar-fill purple" style="width:100.0%"></div></div>
+<div class="bar-value">31</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">อยากพัฒนา/เรียนต่อ/เติบโต</div>
+<div class="bar-track"><div class="bar-fill purple" style="width:83.9%"></div></div>
+<div class="bar-value">26</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">วัฒนธรรมการทำงาน/พฤติกรรม</div>
+<div class="bar-track"><div class="bar-fill purple" style="width:54.8%"></div></div>
+<div class="bar-value">17</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">สุขภาพ/กิจกรรม/การดูแลบุคลากร</div>
+<div class="bar-track"><div class="bar-fill purple" style="width:29.0%"></div></div>
+<div class="bar-value">9</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">ไม่ตอบ</div>
+<div class="bar-track"><div class="bar-fill purple" style="width:22.6%"></div></div>
+<div class="bar-value">7</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">เงินเดือน/สวัสดิการ/ค่าตอบแทน</div>
+<div class="bar-track"><div class="bar-fill purple" style="width:16.1%"></div></div>
+<div class="bar-value">5</div>
+</div>
+<div class="bar-row">
+<div class="bar-label">ข้อเสนอ/ข้อความทั่วไป</div>
+<div class="bar-track"><div class="bar-fill purple" style="width:16.1%"></div></div>
+<div class="bar-value">5</div>
+</div></div>
+</div>
+<div class="card">
+<h3>สัญญาณเสี่ยงต่อการลาออก</h3>
+<div class="stacked"><div class="stack c1" style="width:69.23%" title="Low Risk 36 (69.2%)"></div><div class="stack c2" style="width:9.62%" title="Medium Risk 5 (9.6%)"></div><div class="stack c3" style="width:15.38%" title="High Risk 8 (15.4%)"></div><div class="stack c4" style="width:5.77%" title="Not enough information 3 (5.8%)"></div></div><div class="legend-wrap"><span class="legend"><i class="c1"></i>Low Risk: 36 (69.2%)</span><span class="legend"><i class="c2"></i>Medium Risk: 5 (9.6%)</span><span class="legend"><i class="c3"></i>High Risk: 8 (15.4%)</span><span class="legend"><i class="c4"></i>Not enough information: 3 (5.8%)</span></div>
+<div style="height:16px"></div>
+<h3>แนวโน้มการทำงานต่อกับองค์กร</h3>
+<div class="stacked"><div class="stack c1" style="width:7.69%" title="ไม่เกิน 1 ปี 4 (7.7%)"></div><div class="stack c2" style="width:5.77%" title="1–2 ปี 3 (5.8%)"></div><div class="stack c3" style="width:7.69%" title="3–5 ปี 4 (7.7%)"></div><div class="stack c4" style="width:26.92%" title="6–10 ปี 14 (26.9%)"></div><div class="stack c5" style="width:11.54%" title="11–20 ปี 6 (11.5%)"></div><div class="stack c6" style="width:7.69%" title="มากกว่า 20 ปี 4 (7.7%)"></div><div class="stack c7" style="width:23.08%" title="อยู่ระยะยาว/จนเกษียณ 12 (23.1%)"></div></div><div class="legend-wrap"><span class="legend"><i class="c1"></i>ไม่เกิน 1 ปี: 4 (7.7%)</span><span class="legend"><i class="c2"></i>1–2 ปี: 3 (5.8%)</span><span class="legend"><i class="c3"></i>3–5 ปี: 4 (7.7%)</span><span class="legend"><i class="c4"></i>6–10 ปี: 14 (26.9%)</span><span class="legend"><i class="c5"></i>11–20 ปี: 6 (11.5%)</span><span class="legend"><i class="c6"></i>มากกว่า 20 ปี: 4 (7.7%)</span><span class="legend"><i class="c7"></i>อยู่ระยะยาว/จนเกษียณ: 12 (23.1%)</span></div>
+</div>
+</div>
+</section>
+<section class="section topic-6">
+<h2>ประเด็นที่ 5: เรื่อง HR ที่ควรสื่อสารอย่างระมัดระวัง</h2>
+<p class="section-lead">แยกเรื่องที่ควรสื่อสารอย่างระมัดระวัง เช่น เกษียณ 25 ปี สวัสดิการ และข้อมูลส่วนบุคคล</p>
+<div class="grid two-col">
+<div class="card">
+<h3>ความเห็นต่อประเด็นเกษียณ 25 ปี</h3>
+<div class="stacked"><div class="stack c1" style="width:80.77%" title="ไม่ตอบ 42 (80.8%)"></div><div class="stack c2" style="width:5.77%" title="กังวลเรื่องเงินชดเชย 3 (5.8%)"></div><div class="stack c3" style="width:5.77%" title="สนใจ/เปิดรับ 3 (5.8%)"></div><div class="stack c4" style="width:7.69%" title="ยังไม่สนใจ/ยังไม่มีแผน 4 (7.7%)"></div></div><div class="legend-wrap"><span class="legend"><i class="c1"></i>ไม่ตอบ: 42 (80.8%)</span><span class="legend"><i class="c2"></i>กังวลเรื่องเงินชดเชย: 3 (5.8%)</span><span class="legend"><i class="c3"></i>สนใจ/เปิดรับ: 3 (5.8%)</span><span class="legend"><i class="c4"></i>ยังไม่สนใจ/ยังไม่มีแผน: 4 (7.7%)</span><span class="legend"><i class="c5"></i>อื่น ๆ/ต้องตรวจสอบเพิ่มเติม: 0 (0.0%)</span></div>
+<p class="muted">อัตราการตอบหัวข้อนี้: 19.2% (10 จาก 52) จึงควรอ่านผลด้วยความระมัดระวัง</p>
+</div>
+<div class="danger-note">
+<h3>ข้อควรระวังในการใช้ข้อมูล</h3>
+<p>รายงานนี้ปกปิดชื่อบุคคลในตัวอย่างข้อความ และไม่จัดอันดับรายบุคคล หากต้องดูข้อมูลรายหน่วยงาน ควรจำกัดสิทธิ์และใช้เพื่อปรับปรุงบริการภายในเท่านั้น</p>
+</div>
+</div>
+</section>
+<section class="section topic-7">
+<h2>ข้อเสนอจากข้อมูลเพื่อพัฒนา/ดำเนินการ</h2>
+<p class="section-lead">จัดลำดับเรื่องที่ควรเริ่มทำ พร้อมเจ้าของงาน ระยะเวลา และตัวชี้วัด</p>
+<div style="overflow:auto">
+<table class="roadmap">
+<thead><tr><th>ลำดับความสำคัญ</th><th>ประเด็น</th><th>ข้อเสนอแนะ</th><th>เจ้าของงาน</th><th>ระยะเวลา</th><th>ตัวชี้วัด</th><th>ผลที่คาดว่าจะได้</th></tr></thead>
+<tbody>
+<tr>
+<td>สูง</td>
+<td>ระบบจองห้อง/สถานที่/อุปกรณ์ยังเป็นจุดติดขัดสูง</td>
+<td>ทำระบบจองกลางที่รวมสถานที่ อุปกรณ์ โต๊ะ เก้าอี้ รถ และผู้รับผิดชอบ พร้อมแสดงสถานะให้ติดตามได้</td>
+<td>สำนักงานอาคารและสถานที่ + ICT</td>
+<td>1–3 เดือน</td>
+<td>ลดการกล่าวถึงปัญหาด้านสถานที่ ≥30% ในรอบสำรวจถัดไป</td>
+<td>ลดงานตาม ลดงานซ้ำ และทำให้ผู้ใช้งานเห็นสถานะชัดเจน</td>
+</tr>
+<tr>
+<td>สูง</td>
+<td>ช่องว่างการสื่อสาร KPI / ยุทธศาสตร์</td>
+<td>ทำสรุป KPI ฉบับเจ้าหน้าที่: KPI คณะคืออะไร งานของเจ้าหน้าที่เกี่ยวข้องอย่างไร และสรุปผลทุกไตรมาส</td>
+<td>คณะ + HR</td>
+<td>1–3 เดือน</td>
+<td>การรับรู้ KPI Rate เพิ่มเป็น ≥75%</td>
+<td>เจ้าหน้าที่เห็นความหมายของงาน และช่วยผลักดัน KPI ได้ตรงจุด</td>
+</tr>
+<tr>
+<td>กลาง</td>
+<td>เอกสาร eDoc / paper / email ซ้ำซ้อน</td>
+<td>ทบทวนขั้นตอนงานและทำ Template กลาง แยกให้ชัดว่างานใดควรจบใน eDoc และงานใดยังต้องใช้เอกสารจริง</td>
+<td>ICT + หน่วยงานเจ้าของกระบวนการ</td>
+<td>3–6 เดือน</td>
+<td>ลดขั้นตอนซ้ำอย่างน้อย 2 ขั้นตอนในกระบวนการหลัก</td>
+<td>ลดเวลาประสานงานและลดความผิดพลาดจากเอกสาร</td>
+</tr>
+<tr>
+<td>กลาง</td>
+<td>การอยู่ต่อ / ความเสี่ยงลาออกจากโอกาสเติบโตและงานจำเจ</td>
+<td>ทำ Career Path / Upskill Track สำหรับเจ้าหน้าที่คณะ เช่น Data, AI, Service และ Project Coordination</td>
+<td>HR + คณะ + หน่วยงานพัฒนาบุคลากร</td>
+<td>3–6 เดือน</td>
+<td>กลุ่ม High/Medium Risk ได้รับแผนพัฒนา ≥80%</td>
+<td>เพิ่มความผูกพันและลดความเสี่ยงลาออก</td>
+</tr>
+<tr>
+<td>เฝ้าระวัง</td>
+<td>นโยบายเกษียณ 25 ปีเป็นประเด็น HR ที่อ่อนไหว</td>
+<td>สื่อสารเงื่อนไข สิทธิประโยชน์ ทางเลือก และช่องทางปรึกษาแบบเป็นส่วนตัว</td>
+<td>HR + ผู้บริหาร</td>
+<td>6–12 เดือน</td>
+<td>ลดคำถาม/ความกังวลที่ไม่ชัดเจนในรอบสื่อสารครั้งถัดไป</td>
+<td>ลดความไม่มั่นใจและป้องกันการตีความผิด</td>
+</tr></tbody>
+</table>
+</div>
+</section>
+<div class="footer">Updated dashboard version: removed Data Understanding and raw anonymized data table; แนวทางดำเนินการ owners revised per request.</div>
+</div>
+</body>
+</html>
